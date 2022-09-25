@@ -1,0 +1,31 @@
+{
+  "name": "open-music-queue-consumer",
+  "version": "1.0.0",
+  "description": "Open Music Queue Consumer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adanngrha/open-music-queue-consumer.git"
+  },
+  "author": "Adan Nugraha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adanngrha/open-music-queue-consumer/issues"
+  },
+  "homepage": "https://github.com/adanngrha/open-music-queue-consumer#readme",
+  "dependencies": {
+    "amqplib": "^0.10.3",
+    "dotenv": "^16.0.2",
+    "nodemailer": "^6.7.8",
+    "pg": "^8.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.24.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  }
+}
