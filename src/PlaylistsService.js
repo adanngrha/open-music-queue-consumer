@@ -1,4 +1,5 @@
 const { Pool } = require('pg');
+const { mapDBToModelPlaylistWithSongs } = require('./utils/mapDBToModelPlaylistWithSongs');
 
 class PlaylistsService {
   constructor() {
@@ -7,11 +8,9 @@ class PlaylistsService {
 
   async getSongsFromPlaylistById(playlistId) {
     const playlistQuery = {
-      text: `SELECT playlists.id, playlists.name, users.username  
+      text: `SELECT playlists.id, playlists.name
       FROM playlists 
-      JOIN users ON playlists.owner = users.id
-      WHERE playlists.id = $1
-      GROUP BY playlists.id, users.username`,
+      WHERE playlists.id = $1`,
       values: [playlistId],
     };
 
@@ -29,7 +28,7 @@ class PlaylistsService {
 
     playlistResult.rows[0].songs = songsResult.rows;
 
-    return playlistResult.rows;
+    return playlistResult.rows.map(mapDBToModelPlaylistWithSongs)[0];
   }
 }
 
